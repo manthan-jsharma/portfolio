@@ -21,7 +21,7 @@ import { Button } from "@/components/ui/button";
 const projects = [
   {
     id: 1,
-    title: "E-Commerce Platform",
+    title: "Ed Tech platform",
     description:
       "A full-stack e-commerce solution with payment processing and inventory management.",
     image: "/placeholder.svg?height=600&width=800",
@@ -31,7 +31,7 @@ const projects = [
   },
   {
     id: 2,
-    title: "AI Content Generator",
+    title: "AirBnb Listing Scraper",
     description:
       "An AI-powered application that generates content based on user prompts.",
     image: "/placeholder.svg?height=600&width=800",
@@ -41,9 +41,9 @@ const projects = [
   },
   {
     id: 3,
-    title: "Task Management Dashboard",
+    title: "Contest Tracker and solutions",
     description:
-      "A collaborative task management tool with real-time updates and analytics.",
+      "manages live contests at Leetcode/Codeforces and also fetches solution vidoes from youtube.",
     image: "/placeholder.svg?height=600&width=800",
     tags: ["Vue.js", "Firebase", "Tailwind CSS", "Chart.js"],
     demoUrl: "https://example.com",
