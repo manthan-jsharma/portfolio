@@ -94,7 +94,11 @@ export default function ProjectsGrid() {
       {projects.map((project, index) => (
         <div
           key={project.id}
-          ref={(el) => el && (cardsRef.current[index] = el)}
+          ref={(el) => {
+            if (el) {
+              cardsRef.current[index] = el;
+            }
+          }}
           className="opacity-0"
         >
           <Card className="h-full overflow-hidden group hover:shadow-lg transition-all duration-300">
