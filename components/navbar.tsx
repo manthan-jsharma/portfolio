@@ -26,6 +26,7 @@ export default function Navbar() {
     { href: "/", label: "Home" },
     { href: "/#projects", label: "Projects" },
     { href: "/projects", label: "All Projects" },
+    { href: "/blog", label: "Blog" },
     { href: "/#contact", label: "Contact" },
   ];
 
@@ -54,7 +55,8 @@ export default function Navbar() {
                 className={cn(
                   "text-sm font-medium transition-colors hover:text-primary",
                   pathname === link.href ||
-                    (pathname === "/" && link.href === "/")
+                    (pathname === "/" && link.href === "/") ||
+                    (pathname.startsWith("/blog/") && link.href === "/blog")
                     ? "text-primary"
                     : "text-muted-foreground"
                 )}
@@ -96,7 +98,8 @@ export default function Navbar() {
                 className={cn(
                   "text-sm font-medium transition-colors hover:text-primary p-2",
                   pathname === link.href ||
-                    (pathname === "/" && link.href === "/")
+                    (pathname === "/" && link.href === "/") ||
+                    (pathname.startsWith("/blog/") && link.href === "/blog")
                     ? "text-primary bg-muted rounded-md"
                     : "text-muted-foreground"
                 )}

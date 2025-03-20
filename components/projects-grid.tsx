@@ -24,7 +24,7 @@ const projects = [
     title: "Ed Tech platform",
     description:
       "A full-stack e-commerce solution with payment processing and inventory management.",
-    image: "/placeholder.svg?height=600&width=800",
+    image: "/image/Bookmark.png?height=600&width=800",
     tags: ["Next.js", "Tailwind CSS", "Stripe", "MongoDB"],
     demoUrl: "https://example.com",
     githubUrl: "https://github.com/yourusername/project",
@@ -34,7 +34,9 @@ const projects = [
     title: "AirBnb Listing Scraper",
     description:
       "An AI-powered application that generates content based on user prompts.",
-    image: "/placeholder.svg?height=600&width=800",
+
+    image: "/image/Airbnb.png?height=600&width=800",
+
     tags: ["React", "Node.js", "OpenAI", "Express"],
     demoUrl: "https://example.com",
     githubUrl: "https://github.com/yourusername/project",
@@ -44,7 +46,7 @@ const projects = [
     title: "Contest Tracker and solutions",
     description:
       "manages live contests at Leetcode/Codeforces and also fetches solution vidoes from youtube.",
-    image: "/placeholder.svg?height=600&width=800",
+    image: "/image/contesttracker.png?height=600&width=800",
     tags: ["Vue.js", "Firebase", "Tailwind CSS", "Chart.js"],
     demoUrl: "https://example.com",
     githubUrl: "https://github.com/yourusername/project",
