@@ -26,20 +26,20 @@ const projects = [
       "A full-stack e-commerce solution with payment processing and inventory management.",
     image: "/image/Bookmark.png?height=600&width=800",
     tags: ["Next.js", "Tailwind CSS", "Stripe", "MongoDB"],
-    demoUrl: "https://example.com",
+    demoUrl: "https://www.teachyourpeer.com/",
     githubUrl: "https://github.com/yourusername/project",
   },
   {
     id: 2,
     title: "AirBnb Listing Scraper",
     description:
-      "An AI-powered application that generates content based on user prompts.",
+      "AirBnb Listing Data Scraper, Scrapi(spider),Next,Django(python),Mysql .",
 
     image: "/image/Airbnb.png?height=600&width=800",
 
     tags: ["React", "Node.js", "OpenAI", "Express"],
     demoUrl: "https://example.com",
-    githubUrl: "https://github.com/yourusername/project",
+    githubUrl: "https://github.com/manthan-jsharma/Airbnb-Scraper-Frontend",
   },
   {
     id: 3,
@@ -49,7 +49,8 @@ const projects = [
     image: "/image/contesttracker.png?height=600&width=800",
     tags: ["Vue.js", "Firebase", "Tailwind CSS", "Chart.js"],
     demoUrl: "https://example.com",
-    githubUrl: "https://github.com/yourusername/project",
+    githubUrl:
+      "https://github.com/manthan-jsharma/Coding-Contest-Tracker-Frontend",
   },
 ];
 
