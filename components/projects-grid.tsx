@@ -37,7 +37,7 @@ const projects = [
 
     image: "/image/Airbnb.png?height=600&width=800",
 
-    tags: ["React", "Node.js", "OpenAI", "Express"],
+    tags: ["Next.js", "Scrapy", "Django", "Spider"],
     demoUrl: "https://example.com",
     githubUrl: "https://github.com/manthan-jsharma/Airbnb-Scraper-Frontend",
   },
