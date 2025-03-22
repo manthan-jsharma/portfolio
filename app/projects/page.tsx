@@ -21,8 +21,7 @@ const projects = [
       "A full-stack edTech solution with Credit Buissness Logic, Schedule Management(Calendly), State management, Peer to peer Connect(Meet-Api), Search Filters.",
     longDescription:
       "This comprehensive edTech platform features user authentication, Dashboard for Management for Both Student and Teacher, Courses Form, Session Booking, Availability Selection, The application is built with Next.js for server-side rendering and optimized performance.",
-    image:
-      "/Users/rhythmsharma/Desktop/Project/portfolio/Screenshot 2025-03-18 at 1.35.17 AM.png",
+    image: "/Edtech.png",
     tags: [
       "Next.js",
       "Tailwind CSS",
@@ -41,7 +40,7 @@ const projects = [
       "An AI-powered application that generates content based on user prompts.",
     longDescription:
       "Using google authentication and Leveraging Google Speech to Text Api, this application helps users generate various types of content from blog posts to marketing copy, Allows multiple language support. It includes features like content history, export options, and customization settings to fine-tune the AI's output to match specific tones and styles.",
-    image: "/Aicaptions.png?height=600&width=800",
+    image: "/Aicaption.png?height=600&width=800",
     tags: ["Next", "Node.js", "OpenAI", "Express"],
     demoUrl: "https://example.com",
     githubUrl: "https://github.com/manthan-jsharma/AI-Captions-Generator",
