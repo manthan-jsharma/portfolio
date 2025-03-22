@@ -10,7 +10,6 @@ import { blogPosts, getAllCategories } from "@/lib/blog-data";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import { Frame } from "lucide-react";
 
 export default function BlogPage() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
