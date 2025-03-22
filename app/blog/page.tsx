@@ -10,6 +10,7 @@ import { blogPosts, getAllCategories } from "@/lib/blog-data";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import { Frame } from "lucide-react";
 
 export default function BlogPage() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
@@ -93,6 +94,13 @@ export default function BlogPage() {
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl mb-6">
             Blog
           </h1>
+          {/* <div>
+            <Link href={"https://medium.com/@manthan.jsharma"}>
+              <Frame className="h-6 w-6" />
+              <span>GO TO MEDIUM</span>
+            </Link>
+          </div> */}
+
           <p className="text-xl text-muted-foreground max-w-[700px] mb-8">
             Thoughts, ideas, and insights about web development, design, and
             technology.
