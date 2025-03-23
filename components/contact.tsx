@@ -8,6 +8,13 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Send } from "lucide-react";
+import Brevo from "@getbrevo/brevo";
+import BrevoApi from "@getbrevo/brevo";
+interface EmailData {
+  name: string;
+  email: string;
+  message: string;
+}
 
 export default function Contact() {
   const [formState, setFormState] = useState({
@@ -41,6 +48,50 @@ export default function Contact() {
     return () => ctx.revert();
   }, []);
 
+  const brevo = new BrevoApi({
+    headers: {
+      "api-key": process.env.YOUR_BREVO_API_KEY,
+    },
+  });
+
+  const sendEmail = async (emailData: EmailData) => {
+    try {
+      const response = await brevo.smtp.sendTransacEmail({
+        subject: "new message from portfolio",
+        htmlContent: `
+          <html>
+            <body>
+              <h1>New Message from Contact Page</h1>
+              <p>Name: ${emailData.name}</p>
+              <p>Email: ${emailData.email}</p>
+              <p>Message: ${emailData.message}</p>
+            </body>
+          </html>
+        `,
+        sender: {
+          name: "Your Name",
+          email: "your-email@example.com",
+        },
+        to: [
+          {
+            email: "your-email@example.com",
+            name: "Your Name",
+          },
+        ],
+        replyTo: {
+          email: emailData.email,
+          name: emailData.name,
+        },
+      });
+
+      console.log(
+        "API called successfully. Returned data: " + JSON.stringify(response)
+      );
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -52,15 +103,26 @@ export default function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
 
+    const emailData: EmailData = {
+      name: formState.name,
+      email: formState.email,
+      message: formState.message,
+    };
+
+    sendEmail(emailData)
+      .then(() => {
+        alert("Email sent successfully!");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+
     // Simulate form submission
     await new Promise((resolve) => setTimeout(resolve, 1500));
 
     // Reset form
     setFormState({ name: "", email: "", message: "" });
     setIsSubmitting(false);
-
-    // Show success message (in a real app, you'd handle this better)
-    alert("Message sent successfully!");
   };
 
   return (
