@@ -115,13 +115,13 @@ export default function Footer() {
                   href="mailto:hello@example.com"
                   className="text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  hello@example.com
+                  manthan.jsharma@gmail.com
                 </Link>
                 <Link
                   href="tel:+11234567890"
                   className="text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  +1 (123) 456-7890
+                  +91 6375369971
                 </Link>
               </nav>
             </div>
