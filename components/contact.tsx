@@ -69,13 +69,13 @@ export default function Contact() {
           </html>
         `,
         sender: {
-          name: "Your Name",
-          email: "your-email@example.com",
+          name: emailData.name,
+          email: emailData.email,
         },
         to: [
           {
-            email: "your-email@example.com",
-            name: "Your Name",
+            email: "manthan.jsharma@gmail.com",
+            name: "Manthan Sharma",
           },
         ],
         replyTo: {
