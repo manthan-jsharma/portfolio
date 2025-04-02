@@ -83,15 +83,21 @@ const projects = [
   },
   {
     id: 6,
-    title: "Fitness Tracking App",
+    title: "Smile Match Ai",
     description:
-      "A mobile-first application for tracking workouts and nutrition.",
+      "An Ai-Based Teeth analysis/Face Analysis, Dental Routine/Veneer Recommendation System With Report generation, Email to Doctor, Appointment Booking, integrated Dental Simulator with(Models: Overbite/Crossbite/Underbite and Treatments: Invisalign/veneers) .",
     longDescription:
-      "This fitness application helps users track their workouts, set goals, and monitor their nutrition. It includes features like workout plans, progress charts, calorie counting, and social sharing. The app is built with React Native for cross-platform compatibility.",
-    image: "/placeholder.svg?height=600&width=800",
-    tags: ["React Native", "Firebase", "Redux", "Health APIs"],
+      "This fitness application helps users track their Dental Routine , set Recommendations , monitoing and feedback With Doctor. It includes features like Email to Doctor, Dental Simulator, Veneer Recommendation, and Dental Journey Blogs. The app is built with Next,Prisma,Nodemailer, Calendly, Nanoid, Three.js, Computer Vision, Vortex Ai.",
+    image: "/dental.png?height=600&width=800",
+    tags: [
+      "Next.js",
+      "Next-auth.js",
+      "Three.js",
+      "Computer vision Apis",
+      "Nodemailer",
+    ],
     demoUrl: "https://example.com",
-    githubUrl: "https://github.com/yourusername/project",
+    githubUrl: "https://github.com/manthan-jsharma/SmileMatch-ai",
   },
 ];
 
