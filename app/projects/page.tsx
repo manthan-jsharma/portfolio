@@ -35,54 +35,6 @@ const projects = [
   },
   {
     id: 2,
-    title: "AI Content Generator",
-    description:
-      "An AI-powered application that generates content based on user prompts.",
-    longDescription:
-      "Using google authentication and Leveraging Google Speech to Text Api, this application helps users generate various types of content from blog posts to marketing copy, Allows multiple language support. It includes features like content history, export options, and customization settings to fine-tune the AI's output to match specific tones and styles.",
-    image: "/Aicaption.png?height=600&width=800",
-    tags: ["Next", "Node.js", "OpenAI", "Express"],
-    demoUrl: "https://example.com",
-    githubUrl: "https://github.com/manthan-jsharma/AI-Captions-Generator",
-  },
-  {
-    id: 3,
-    title: "Hacker-x",
-    description: "A Landing Page for The Worlds Largest Hackakthon",
-    longDescription:
-      "this website showcases animations using Three.js, CanvasElement, Gsap, Scrolltrigger, Showcases Amazing Experience with Home, About, Prizes, Judges, Sponsor section",
-    image: "/hackerx.png?height=600&width=800",
-    tags: ["NEXT.js", "WEBGL", "Tailwind CSS", "Three.js", "Gsap"],
-    demoUrl: "https://hacker-x-pi.vercel.app/",
-    githubUrl: "https://github.com/yourusername/project",
-  },
-  {
-    id: 4,
-    title: "Contest Tracker",
-    description:
-      "A Live Contest Tracker App that fetches Live, Past, and Upcoming Contests from Leetcode, Codechef, CodeForces.  .",
-    longDescription:
-      " manages live contests at Leetcode/ Codeforces and also fetches solution vidoes from youtube.",
-    image: "/image/contesttracker.png?height=600&width=800",
-    tags: ["React", "GRaphQL", "Youtube Data 3 API", "MongoDb"],
-    demoUrl: "https://example.com",
-    githubUrl:
-      "https://github.com/manthan-jsharma/Coding-Contest-Tracker-Frontend",
-  },
-  {
-    id: 5,
-    title: "Social Media Dashboard",
-    description:
-      "A dashboard to manage and analyze social media accounts and campaigns.",
-    longDescription:
-      "This dashboard allows users to manage multiple social media accounts in one place. It provides analytics on post performance, audience engagement, and growth trends. The application integrates with various social media APIs to fetch and display real-time data.",
-    image: "/placeholder.svg?height=600&width=800",
-    tags: ["React", "Node.js", "Express", "Chart.js", "Social Media APIs"],
-    demoUrl: "https://example.com",
-    githubUrl: "https://github.com/yourusername/project",
-  },
-  {
-    id: 6,
     title: "Smile Match Ai",
     description:
       "An Ai-Based Teeth analysis/Face Analysis, Dental Routine/Veneer Recommendation System With Report generation, Email to Doctor, Appointment Booking, integrated Dental Simulator with(Models: Overbite/Crossbite/Underbite and Treatments: Invisalign/veneers) .",
@@ -98,6 +50,55 @@ const projects = [
     ],
     demoUrl: "https://example.com",
     githubUrl: "https://github.com/manthan-jsharma/SmileMatch-ai",
+  },
+
+  {
+    id: 3,
+    title: "AI Content Generator",
+    description:
+      "An AI-powered application that generates content based on user prompts.",
+    longDescription:
+      "Using google authentication and Leveraging Google Speech to Text Api, this application helps users generate various types of content from blog posts to marketing copy, Allows multiple language support. It includes features like content history, export options, and customization settings to fine-tune the AI's output to match specific tones and styles.",
+    image: "/Aicaption.png?height=600&width=800",
+    tags: ["Next", "Node.js", "OpenAI", "Express"],
+    demoUrl: "https://example.com",
+    githubUrl: "https://github.com/manthan-jsharma/AI-Captions-Generator",
+  },
+  {
+    id: 4,
+    title: "Hacker-x",
+    description: "A Landing Page for The Worlds Largest Hackakthon",
+    longDescription:
+      "this website showcases animations using Three.js, CanvasElement, Gsap, Scrolltrigger, Showcases Amazing Experience with Home, About, Prizes, Judges, Sponsor section",
+    image: "/hackerx.png?height=600&width=800",
+    tags: ["NEXT.js", "WEBGL", "Tailwind CSS", "Three.js", "Gsap"],
+    demoUrl: "https://hacker-x-pi.vercel.app/",
+    githubUrl: "https://github.com/yourusername/project",
+  },
+  {
+    id: 5,
+    title: "Contest Tracker",
+    description:
+      "A Live Contest Tracker App that fetches Live, Past, and Upcoming Contests from Leetcode, Codechef, CodeForces.  .",
+    longDescription:
+      " manages live contests at Leetcode/ Codeforces and also fetches solution vidoes from youtube.",
+    image: "/image/contesttracker.png?height=600&width=800",
+    tags: ["React", "GRaphQL", "Youtube Data 3 API", "MongoDb"],
+    demoUrl: "https://example.com",
+    githubUrl:
+      "https://github.com/manthan-jsharma/Coding-Contest-Tracker-Frontend",
+  },
+  {
+    id: 6,
+    title: "Social Media Dashboard",
+    description:
+      "A dashboard to manage and analyze social media accounts and campaigns.",
+    longDescription:
+      "This dashboard allows users to manage multiple social media accounts in one place. It provides analytics on post performance, audience engagement, and growth trends. The application integrates with various social media APIs to fetch and display real-time data.",
+    image: "/placeholder.svg?height=600&width=800",
+    tags: ["React", "Node.js", "Express", "Chart.js", "Social Media APIs"],
+    demoUrl: "https://example.com",
+    githubUrl: "https://github.com/yourusername/project",
   },
 ];
 
