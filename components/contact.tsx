@@ -1,5 +1,5 @@
 "use client";
-import axios from "axios";
+// import axios from "axios";
 import type React from "react";
 
 import { useEffect, useRef, useState } from "react";
@@ -58,14 +58,14 @@ export default function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    try {
-      const response = await axios.post("/api/send-email", formState);
-      alert(response.data.message);
-    } catch (error) {
-      alert("Error sending email. Please try again.");
-    } finally {
-      setIsSubmitting(false);
-    }
+    // try {
+    //   const response = await axios.post("/api/send-email", formState);
+    //   alert(response.data.message);
+    // } catch (error) {
+    //   alert("Error sending email. Please try again.");
+    // } finally {
+    //   setIsSubmitting(false);
+    // }
 
     await new Promise((resolve) => setTimeout(resolve, 1500));
 
