@@ -95,7 +95,7 @@ const projects = [
       "A dashboard to manage and analyze social media accounts and campaigns.",
     longDescription:
       "This dashboard allows users to manage multiple social media accounts in one place. It provides analytics on post performance, audience engagement, and growth trends. The application integrates with various social media APIs to fetch and display real-time data.",
-    image: "/placeholder.svg?height=600&width=800",
+    image: "/socialmedia.png?height=600&width=800",
     tags: ["React", "Node.js", "Express", "Chart.js", "Social Media APIs"],
     demoUrl: "https://example.com",
     githubUrl: "https://github.com/yourusername/project",
