@@ -106,7 +106,7 @@ const projects = [
     description:
       "A dashboard to manage and visualize Solana accounts, Token mintings, Token sending and Transaction History.",
     longDescription:
-      "This dashboard allows users to manage multiple social media accounts in one place. It provides analytics on post performance, audience engagement, and growth trends. The application integrates with various social media APIs to fetch and display real-time data.",
+      "Multi-Asset Support, Token Creation, Transaction History, User-Friendly Interface",
     image: "/Solana.png?height=600&width=800",
     tags: [
       ,
