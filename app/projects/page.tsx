@@ -98,7 +98,7 @@ const projects = [
     image: "/socialmedia.png?height=600&width=800",
     tags: ["React", "Node.js", "Express", "Chart.js", "Social Media APIs"],
     demoUrl: "https://example.com",
-    githubUrl: "https://github.com/yourusername/project",
+    githubUrl: "https://github.com/manthan-jsharma/Social-Media-Manager",
   },
 ];
 
