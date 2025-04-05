@@ -100,6 +100,26 @@ const projects = [
     demoUrl: "https://example.com",
     githubUrl: "https://github.com/manthan-jsharma/Social-Media-Manager",
   },
+  {
+    id: 7,
+    title: "Solana-Wallet-Minting",
+    description:
+      "A dashboard to manage and visualize Solana accounts, Token mintings, Token sending and Transaction History.",
+    longDescription:
+      "This dashboard allows users to manage multiple social media accounts in one place. It provides analytics on post performance, audience engagement, and growth trends. The application integrates with various social media APIs to fetch and display real-time data.",
+    image: "/Solana.png?height=600&width=800",
+    tags: [
+      ,
+      "Node.js",
+      "Solana-Wallets",
+      "Keypair-Secret",
+      "Phantom/SolfWare",
+      "BlockChain",
+    ],
+    demoUrl:
+      "https://www.loom.com/share/289cf74591b24e0d92ca7d6549512b19?sid=0c449d0a-d304-4a23-8b85-0d90c7c9ae91",
+    githubUrl: "https://github.com/manthan-jsharma/Social-Media-Manager",
+  },
 ];
 
 export default function ProjectsPage() {
