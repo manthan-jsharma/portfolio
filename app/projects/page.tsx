@@ -48,7 +48,7 @@ const projects = [
       "Computer vision Apis",
       "Nodemailer",
     ],
-    demoUrl: "https://example.com",
+    demoUrl: "https://www.loom.com/share/7fe991a520ef4e239896bba3c9ed5ce1",
     githubUrl: "https://github.com/manthan-jsharma/SmileMatch-ai",
   },
 
