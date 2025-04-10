@@ -120,6 +120,19 @@ const projects = [
       "https://www.loom.com/share/289cf74591b24e0d92ca7d6549512b19?sid=0c449d0a-d304-4a23-8b85-0d90c7c9ae91",
     githubUrl: "https://github.com/manthan-jsharma/Social-Media-Manager",
   },
+
+  {
+    id: 8,
+    title: "AirBnb Listing Scraper",
+    description:
+      "AirBnb Listing Data Scraper, Scrapi(spider),Next,Django(python),Mysql .",
+
+    image: "/image/Airbnb.png?height=600&width=800",
+
+    tags: ["Next.js", "Scrapy", "Django", "Spider"],
+    demoUrl: "https://example.com",
+    githubUrl: "https://github.com/manthan-jsharma/Airbnb-Scraper-Frontend",
+  },
 ];
 
 export default function ProjectsPage() {

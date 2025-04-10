@@ -29,18 +29,26 @@ const projects = [
     demoUrl: "https://www.teachyourpeer.com/",
     githubUrl: "https://github.com/yourusername/project",
   },
+
   {
     id: 2,
-    title: "AirBnb Listing Scraper",
+    title: "Smile Match Ai",
     description:
-      "AirBnb Listing Data Scraper, Scrapi(spider),Next,Django(python),Mysql .",
-
-    image: "/image/Airbnb.png?height=600&width=800",
-
-    tags: ["Next.js", "Scrapy", "Django", "Spider"],
-    demoUrl: "https://example.com",
-    githubUrl: "https://github.com/manthan-jsharma/Airbnb-Scraper-Frontend",
+      "An Ai-Based Teeth analysis/Face Analysis, Dental Routine/Veneer Recommendation System With Report generation, Email to Doctor, Appointment Booking, integrated Dental Simulator with(Models: Overbite/Crossbite/Underbite and Treatments: Invisalign/veneers) .",
+    longDescription:
+      "This fitness application helps users track their Dental Routine , set Recommendations , monitoing and feedback With Doctor. It includes features like Email to Doctor, Dental Simulator, Veneer Recommendation, and Dental Journey Blogs. The app is built with Next,Prisma,Nodemailer, Calendly, Nanoid, Three.js, Computer Vision, Vortex Ai.",
+    image: "/dental.png?height=600&width=800",
+    tags: [
+      "Next.js",
+      "Next-auth.js",
+      "Three.js",
+      "Computer vision Apis",
+      "Nodemailer",
+    ],
+    demoUrl: "https://www.loom.com/share/7fe991a520ef4e239896bba3c9ed5ce1",
+    githubUrl: "https://github.com/manthan-jsharma/SmileMatch-ai",
   },
+
   {
     id: 3,
     title: "Contest Tracker and solutions",
