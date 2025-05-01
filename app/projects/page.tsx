@@ -70,7 +70,7 @@ const projects = [
       "A Multilingual AI Agent That joins and Provides Note Formats for the meetings .",
     longDescription:
       "The AI Agent is made using Langchain LLM, Qwen, Whisper. It Generates Transcription, SUmmarization and Action Points woth Multilingual Support",
-    image: "/image/contesttracker.png?height=600&width=800",
+    image: "/note.png?height=600&width=800",
     tags: ["React", "LangChain", "Whisper", "SQLALCHEMY", "Python"],
     demoUrl: "https://holon-landing.vercel.app/",
     githubUrl: "https://github.com/manthan-jsharma/Holon-AI-Backend",
