@@ -51,30 +51,31 @@ const projects = [
     demoUrl: "https://www.loom.com/share/7fe991a520ef4e239896bba3c9ed5ce1",
     githubUrl: "https://github.com/manthan-jsharma/SmileMatch-ai",
   },
-
   {
     id: 3,
-    title: "AI Content Generator",
-    description:
-      "An AI-powered application that generates content based on user prompts.",
+    title: "Travel-Itinarary-Recommendations and Browsing",
+    description: "An MCP Powered Website that recommends Travel Itineraries.",
     longDescription:
-      "Using google authentication and Leveraging Google Speech to Text Api, this application helps users generate various types of content from blog posts to marketing copy, Allows multiple language support. It includes features like content history, export options, and customization settings to fine-tune the AI's output to match specific tones and styles.",
-    image: "/Aicaption.png?height=600&width=800",
-    tags: ["Next", "Node.js", "OpenAI", "Express"],
-    demoUrl: "https://example.com",
-    githubUrl: "https://github.com/manthan-jsharma/AI-Captions-Generator",
+      "User can filter out Itinaray based on Accomodation, Transport, Budget, Region. User can Created a personalized Itiranary, Store it and find with Filters, MCP server Recommends Suitable Itinarary, with Preferences, Budget, Number of nights Filters",
+    image: "/itinerary.png?height=600&width=800",
+    tags: ["Next.js", "FastAPi", "MCP Server", "SQLALCHEMY", "Alembic"],
+    demoUrl: "https://www.loom.com/share/d3f3e78893f048ee8a5b753eb6fa5cec",
+    githubUrl: "https://github.com/manthan-jsharma/itinerary-backend",
   },
+
   {
     id: 4,
-    title: "Hacker-x",
-    description: "A Landing Page for The Worlds Largest Hackakthon",
+    title: "Multilingual-AI-Note-Taking",
+    description:
+      "A Multilingual AI Agent That joins and Provides Note Formats for the meetings .",
     longDescription:
-      "this website showcases animations using Three.js, CanvasElement, Gsap, Scrolltrigger, Showcases Amazing Experience with Home, About, Prizes, Judges, Sponsor section",
-    image: "/hackerx.png?height=600&width=800",
-    tags: ["NEXT.js", "WEBGL", "Tailwind CSS", "Three.js", "Gsap"],
-    demoUrl: "https://hacker-x-pi.vercel.app/",
-    githubUrl: "https://github.com/yourusername/project",
+      "The AI Agent is made using Langchain LLM, Qwen, Whisper. It Generates Transcription, SUmmarization and Action Points woth Multilingual Support",
+    image: "/image/contesttracker.png?height=600&width=800",
+    tags: ["React", "LangChain", "Whisper", "SQLALCHEMY", "Python"],
+    demoUrl: "https://holon-landing.vercel.app/",
+    githubUrl: "https://github.com/manthan-jsharma/Holon-AI-Backend",
   },
+
   {
     id: 5,
     title: "Contest Tracker",
@@ -88,8 +89,33 @@ const projects = [
     githubUrl:
       "https://github.com/manthan-jsharma/Coding-Contest-Tracker-Frontend",
   },
+
   {
     id: 6,
+    title: "AI Content Generator",
+    description:
+      "An AI-powered application that generates content based on user prompts.",
+    longDescription:
+      "Using google authentication and Leveraging Google Speech to Text Api, this application helps users generate various types of content from blog posts to marketing copy, Allows multiple language support. It includes features like content history, export options, and customization settings to fine-tune the AI's output to match specific tones and styles.",
+    image: "/Aicaption.png?height=600&width=800",
+    tags: ["Next", "Node.js", "OpenAI", "Express"],
+    demoUrl: "https://example.com",
+    githubUrl: "https://github.com/manthan-jsharma/AI-Captions-Generator",
+  },
+  {
+    id: 7,
+    title: "Hacker-x",
+    description: "A Landing Page for The Worlds Largest Hackakthon",
+    longDescription:
+      "this website showcases animations using Three.js, CanvasElement, Gsap, Scrolltrigger, Showcases Amazing Experience with Home, About, Prizes, Judges, Sponsor section",
+    image: "/hackerx.png?height=600&width=800",
+    tags: ["NEXT.js", "WEBGL", "Tailwind CSS", "Three.js", "Gsap"],
+    demoUrl: "https://hacker-x-pi.vercel.app/",
+    githubUrl: "https://github.com/yourusername/project",
+  },
+
+  {
+    id: 8,
     title: "Social Media Dashboard",
     description:
       "A dashboard to manage and analyze social media accounts and campaigns.",
@@ -101,7 +127,7 @@ const projects = [
     githubUrl: "https://github.com/manthan-jsharma/Social-Media-Manager",
   },
   {
-    id: 7,
+    id: 9,
     title: "Solana-Wallet-Minting",
     description:
       "A dashboard to manage and visualize Solana accounts, Token mintings, Token sending and Transaction History.",
@@ -122,7 +148,7 @@ const projects = [
   },
 
   {
-    id: 8,
+    id: 10,
     title: "AirBnb Listing Scraper",
     description:
       "AirBnb Listing Data Scraper, Scrapi(spider),Next,Django(python),Mysql .",
