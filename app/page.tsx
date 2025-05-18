@@ -49,6 +49,7 @@ export default function Home() {
           </Link>
         </div>
       </div>
+
       <Contact />
     </main>
   );
