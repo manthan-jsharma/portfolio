@@ -145,6 +145,16 @@ export default function Hero() {
       ref={heroRef}
       className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-primary/5 to-secondary/10 bg-[length:200%_200%] bg-[0%_0%]"
     >
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover z-0"
+      >
+        <source src="/videos/portfolio1.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
       <div className="container px-4 py-32 mx-auto">
         <div ref={textRef} className="max-w-3xl mx-auto text-center space-y-6">
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">

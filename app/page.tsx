@@ -4,6 +4,7 @@ import ProjectsGrid from "@/components/projects-grid";
 import Contact from "@/components/contact";
 import Link from "next/link";
 import BlogPreview from "@/components/blog-preview";
+import { ChatWidget } from "@/components/ChatWidget";
 
 export default function Home() {
   return (
@@ -49,7 +50,7 @@ export default function Home() {
           </Link>
         </div>
       </div>
-
+      <ChatWidget />
       <Contact />
     </main>
   );
