@@ -69,6 +69,7 @@ const chain = RunnableSequence.from([
   llm,
   new StringOutputParser(),
 ]);
+
 export async function POST(req: any) {
   try {
     const { messages }: { messages: UIMessage[] } = await req.json();
@@ -78,7 +79,15 @@ export async function POST(req: any) {
       provider: "custom",
       modelId: "my-rag-chain",
 
-      async doStream(options) {
+      supportedUrls: {},
+
+      doGenerate: async () => {
+        throw new Error(
+          "doGenerate not implemented for this custom RAG model."
+        );
+      },
+
+      doStream: async (options) => {
         const modelMessages = options.prompt;
 
         const lastUserMessage = [...modelMessages]
@@ -94,12 +103,11 @@ export async function POST(req: any) {
             const textPart = lastUserMessage.content.find(
               (part) => part.type === "text"
             );
-            if (textPart) {
+            if (textPart && "text" in textPart) {
               userQuestion = textPart.text;
             }
           }
         }
-
         const stream = await chain.stream({
           question: userQuestion,
         });
@@ -108,7 +116,7 @@ export async function POST(req: any) {
 
         return {
           stream: uiMessageStream,
-        };
+        } as unknown as { stream: ReadableStream<any> };
       },
     };
 
