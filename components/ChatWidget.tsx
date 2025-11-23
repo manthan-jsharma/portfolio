@@ -1,16 +1,25 @@
 "use client";
 
 import { useChat, type UIMessage } from "@ai-sdk/react";
-import { useState, useEffect } from "react";
-import { Bot, Send, X, User, CornerDownLeft } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { Bot, Send, X, User, CornerDownLeft, Sparkles } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
-  const { messages, sendMessage } = useChat();
+  const [burst, setBurst] = useState(false);
+  const { messages, sendMessage, status } = useChat();
   const [input, setInput] = useState<string>("");
 
   const [showCallout, setShowCallout] = useState(false);
+
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (isOpen) {
+      messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [messages, isOpen, status]);
 
   useEffect(() => {
     const showTimer = setTimeout(() => {
@@ -29,6 +38,8 @@ export function ChatWidget() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     if (!input.trim()) return;
+    setBurst(true);
+    setTimeout(() => setBurst(false), 2000);
 
     sendMessage({
       role: "user",
@@ -45,7 +56,8 @@ export function ChatWidget() {
       .map((p: any) => p.text)
       .join("");
   };
-
+  const isThinking =
+    status === "submitted" && messages[messages.length - 1]?.role === "user";
   return (
     <div className="fixed bottom-5 right-5 z-50 flex flex-col items-end gap-3">
       <AnimatePresence>
@@ -80,7 +92,7 @@ export function ChatWidget() {
             <div className="flex justify-between items-center p-4 bg-gradient-to-r from-purple-600 via-blue-500 to-cyan-400">
               <div className="flex items-center gap-2">
                 <Bot className="text-white" size={20} />
-                <h3 className="font-bold text-lg text-white">
+                <h3 className="font-bold text-lg text-transparent bg-clip-text bg-gradient-to-r from-white via-yellow-200 to-white bg-[length:200%_auto] animate-shimmer">
                   Manthan's AI Agent
                 </h3>
               </div>
@@ -93,8 +105,8 @@ export function ChatWidget() {
               </button>
             </div>
 
-            <div className="flex-grow flex flex-col-reverse p-4 space-y-4 space-y-reverse overflow-y-auto">
-              {[...(messages as UIMessage[])].reverse().map((m: UIMessage) => (
+            <div className="flex-grow flex flex-col p-4 space-y-4 overflow-y-auto">
+              {messages.map((m: UIMessage) => (
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -129,6 +141,50 @@ export function ChatWidget() {
                   )}
                 </motion.div>
               ))}
+
+              {isThinking && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="flex items-start gap-3"
+                >
+                  <div className="flex-shrink-0 p-2 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-full">
+                    <Sparkles size={16} className="text-white" />
+                  </div>
+                  <div className="p-4 bg-gray-800 rounded-2xl rounded-bl-lg flex items-center gap-1">
+                    <motion.div
+                      className="w-2 h-2 bg-gray-400 rounded-full"
+                      animate={{ y: [0, -5, 0] }}
+                      transition={{
+                        duration: 0.6,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      }}
+                    />
+                    <motion.div
+                      className="w-2 h-2 bg-gray-400 rounded-full"
+                      animate={{ y: [0, -5, 0] }}
+                      transition={{
+                        duration: 0.6,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                        delay: 0.2,
+                      }}
+                    />
+                    <motion.div
+                      className="w-2 h-2 bg-gray-400 rounded-full"
+                      animate={{ y: [0, -5, 0] }}
+                      transition={{
+                        duration: 0.6,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                        delay: 0.4,
+                      }}
+                    />
+                  </div>
+                </motion.div>
+              )}
+              <div ref={messagesEndRef} />
             </div>
 
             <form
@@ -146,10 +202,36 @@ export function ChatWidget() {
                 />
                 <button
                   type="submit"
-                  className="p-3 bg-blue-600 text-white hover:bg-blue-700 disabled:bg-gray-600"
+                  className=" relative overflow-visible p-3 bg-blue-600 text-white hover:bg-blue-700 disabled:bg-gray-600"
                   disabled={!input.trim()}
                 >
                   <Send size={18} />
+                  <AnimatePresence>
+                    {burst && (
+                      <span className="absolute inset-0 flex items-center justify-center pointer-events-none z-20">
+                        {[...Array(8)].map((_, i) => {
+                          const angle = (i / 8) * 2 * Math.PI;
+                          const x = Math.cos(angle) * 30;
+                          const y = Math.sin(angle) * 30;
+
+                          return (
+                            <motion.div
+                              key={i}
+                              initial={{ opacity: 1, scale: 0, x: 0, y: 0 }}
+                              animate={{
+                                opacity: 0,
+                                scale: 1,
+                                x: x + (Math.random() - 0.5) * 10,
+                                y: y + (Math.random() - 0.5) * 10,
+                              }}
+                              transition={{ duration: 1, ease: "easeOut" }}
+                              className="absolute w-1.5 h-1.5 bg-amber-300 rounded-full shadow-sm"
+                            />
+                          );
+                        })}
+                      </span>
+                    )}
+                  </AnimatePresence>
                 </button>
               </div>
               <p className="text-xs text-gray-500 mt-2 text-center">
