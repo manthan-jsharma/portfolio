@@ -40,7 +40,7 @@ const projects = [
       "An Ai-Based Teeth analysis/Face Analysis, Dental Routine/Veneer Recommendation System With Report generation, Email to Doctor, Appointment Booking, integrated Dental Simulator with(Models: Overbite/Crossbite/Underbite and Treatments: Invisalign/veneers) .",
     longDescription:
       "This fitness application helps users track their Dental Routine , set Recommendations , monitoing and feedback With Doctor. It includes features like Email to Doctor, Dental Simulator, Veneer Recommendation, and Dental Journey Blogs. The app is built with Next,Prisma,Nodemailer, Calendly, Nanoid, Three.js, Computer Vision, Vortex Ai.",
-    image: "/dental.png?height=600&width=800",
+    image: "/dental.png",
     tags: [
       "Next.js",
       "Next-auth.js",
@@ -57,7 +57,7 @@ const projects = [
     description: "An MCP Powered Website that recommends Travel Itineraries.",
     longDescription:
       "User can filter out Itinaray based on Accomodation, Transport, Budget, Region. User can Created a personalized Itiranary, Store it and find with Filters, MCP server Recommends Suitable Itinarary, with Preferences, Budget, Number of nights Filters",
-    image: "/itinerary.png?height=600&width=800",
+    image: "/itinerary.png",
     tags: ["Next.js", "FastAPi", "MCP Server", "SQLALCHEMY", "Alembic"],
     demoUrl: "https://www.loom.com/share/d3f3e78893f048ee8a5b753eb6fa5cec",
     githubUrl: "https://github.com/manthan-jsharma/itinerary-backend",
@@ -70,7 +70,7 @@ const projects = [
       "A Multilingual AI Agent That joins and Provides Note Formats for the meetings .",
     longDescription:
       "The AI Agent is made using Langchain LLM, Qwen, Whisper. It Generates Transcription, SUmmarization and Action Points woth Multilingual Support",
-    image: "/note.png?height=600&width=800",
+    image: "/note.png",
     tags: ["React", "LangChain", "Whisper", "SQLALCHEMY", "Python"],
     demoUrl: "https://holon-landing.vercel.app/",
     githubUrl: "https://github.com/manthan-jsharma/Holon-AI-Backend",
@@ -83,7 +83,7 @@ const projects = [
       "A Live Contest Tracker App that fetches Live, Past, and Upcoming Contests from Leetcode, Codechef, CodeForces.  .",
     longDescription:
       " manages live contests at Leetcode/ Codeforces and also fetches solution vidoes from youtube.",
-    image: "/image/contesttracker.png?height=600&width=800",
+    image: "/image/contesttracker.png",
     tags: ["React", "GRaphQL", "Youtube Data 3 API", "MongoDb"],
     demoUrl: "https://example.com",
     githubUrl:
@@ -97,7 +97,7 @@ const projects = [
       "An AI-powered application that generates content based on user prompts.",
     longDescription:
       "Using google authentication and Leveraging Google Speech to Text Api, this application helps users generate various types of content from blog posts to marketing copy, Allows multiple language support. It includes features like content history, export options, and customization settings to fine-tune the AI's output to match specific tones and styles.",
-    image: "/Aicaption.png?height=600&width=800",
+    image: "/Aicaption.png",
     tags: ["Next", "Node.js", "OpenAI", "Express"],
     demoUrl: "https://example.com",
     githubUrl: "https://github.com/manthan-jsharma/AI-Captions-Generator",
@@ -108,7 +108,7 @@ const projects = [
     description: "A Landing Page for The Worlds Largest Hackakthon",
     longDescription:
       "this website showcases animations using Three.js, CanvasElement, Gsap, Scrolltrigger, Showcases Amazing Experience with Home, About, Prizes, Judges, Sponsor section",
-    image: "/hackerx.png?height=600&width=800",
+    image: "/hackerx.png",
     tags: ["NEXT.js", "WEBGL", "Tailwind CSS", "Three.js", "Gsap"],
     demoUrl: "https://hacker-x-pi.vercel.app/",
     githubUrl: "https://github.com/yourusername/project",
@@ -121,7 +121,7 @@ const projects = [
       "A dashboard to manage and analyze social media accounts and campaigns.",
     longDescription:
       "This dashboard allows users to manage multiple social media accounts in one place. It provides analytics on post performance, audience engagement, and growth trends. The application integrates with various social media APIs to fetch and display real-time data.",
-    image: "/socialmedia.png?height=600&width=800",
+    image: "/socialmedia.png",
     tags: ["React", "Node.js", "Express", "Chart.js", "Social Media APIs"],
     demoUrl: "https://example.com",
     githubUrl: "https://github.com/manthan-jsharma/Social-Media-Manager",
@@ -133,7 +133,7 @@ const projects = [
       "A dashboard to manage and visualize Solana accounts, Token mintings, Token sending and Transaction History.",
     longDescription:
       "Multi-Asset Support, Token Creation, Transaction History, User-Friendly Interface",
-    image: "/Solana.png?height=600&width=800",
+    image: "/Solana.png",
     tags: [
       ,
       "Node.js",
@@ -153,7 +153,7 @@ const projects = [
     description:
       "AirBnb Listing Data Scraper, Scrapi(spider),Next,Django(python),Mysql .",
 
-    image: "/image/Airbnb.png?height=600&width=800",
+    image: "/image/Airbnb.png",
 
     tags: ["Next.js", "Scrapy", "Django", "Spider"],
     demoUrl: "https://example.com",

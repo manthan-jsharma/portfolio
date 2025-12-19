@@ -20,7 +20,7 @@ export const blogPosts: BlogPost[] = [
     content: `
   # Modern Web Development Trends in 2025
   `,
-    coverImage: "/webdev.png?height=600&width=1200",
+    coverImage: "/webdev.png",
     date: "April 15, 2025",
     readingTime: "5 min read",
     category: "Web Development",
@@ -35,7 +35,7 @@ export const blogPosts: BlogPost[] = [
   # Mastering React Server Components: A Comprehensive Guide
   
       `,
-    coverImage: "/react.png?height=600&width=1200",
+    coverImage: "/react.png",
     date: "March 22, 2025",
     readingTime: "8 min read",
     category: "React",
@@ -51,7 +51,7 @@ export const blogPosts: BlogPost[] = [
   
   
       `,
-    coverImage: "/placeholder.svg?height=600&width=1200",
+    coverImage: "/placeholder.svg",
     date: "February 10, 2025",
     readingTime: "6 min read",
     category: "Accessibility",
@@ -64,7 +64,7 @@ export const blogPosts: BlogPost[] = [
     content: `
   # The Future of CSS: What's Coming in 2025 and Beyond
       `,
-    coverImage: "/css.png?height=600&width=1200",
+    coverImage: "/css.png",
     date: "January 5, 2025",
     readingTime: "7 min read",
     category: "CSS",
@@ -78,7 +78,7 @@ export const blogPosts: BlogPost[] = [
   # Optimizing Web Performance: Advanced Techniques
   
       `,
-    coverImage: "/optimizing.png?height=600&width=1200",
+    coverImage: "/optimizing.png",
     date: "December 12, 2024",
     readingTime: "9 min read",
     category: "Performance",
@@ -92,7 +92,7 @@ export const blogPosts: BlogPost[] = [
   # TypeScript Best Practices for Large-Scale Applications
   
       `,
-    coverImage: "/typescript.png?height=600&width=1200",
+    coverImage: "/typescript.png",
     date: "November 8, 2024",
     readingTime: "10 min read",
     category: "TypeScript",
@@ -105,7 +105,7 @@ export const blogPosts: BlogPost[] = [
     content: `
   # The State of Frontend Frameworks in 2025
       `,
-    coverImage: "/frontend.png?height=600&width=1200",
+    coverImage: "/frontend.png",
     date: "October 20, 2024",
     readingTime: "12 min read",
     category: "Frameworks",
@@ -120,7 +120,7 @@ export const blogPosts: BlogPost[] = [
   # AI in Web Development: Practical Applications
   
       `,
-    coverImage: "/aiwebdev.png?height=600&width=1200",
+    coverImage: "/aiwebdev.png",
     date: "September 5, 2024",
     readingTime: "8 min read",
     category: "AI",
