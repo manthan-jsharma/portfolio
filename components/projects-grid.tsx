@@ -24,7 +24,8 @@ const projects = [
     title: "Ed Tech platform",
     description:
       "A full-stack e-commerce solution with payment processing and inventory management.",
-    image: "/image/Bookmark.png?height=600&width=800",
+    // FIXED: Removed query string (?height=...)
+    image: "/image/Bookmark.png",
     tags: ["Next.js", "Tailwind CSS", "Stripe", "MongoDB"],
     demoUrl: "https://www.teachyourpeer.com/",
     githubUrl: "https://github.com/yourusername/project",
@@ -37,7 +38,8 @@ const projects = [
       "An Ai-Based Teeth analysis/Face Analysis, Dental Routine/Veneer Recommendation System With Report generation, Email to Doctor, Appointment Booking, integrated Dental Simulator with(Models: Overbite/Crossbite/Underbite and Treatments: Invisalign/veneers) .",
     longDescription:
       "This fitness application helps users track their Dental Routine , set Recommendations , monitoing and feedback With Doctor. It includes features like Email to Doctor, Dental Simulator, Veneer Recommendation, and Dental Journey Blogs. The app is built with Next,Prisma,Nodemailer, Calendly, Nanoid, Three.js, Computer Vision, Vortex Ai.",
-    image: "/dental.png?height=600&width=800",
+    // FIXED: Removed query string
+    image: "/dental.png",
     tags: [
       "Next.js",
       "Next-auth.js",
@@ -54,7 +56,8 @@ const projects = [
     title: "Contest Tracker and solutions",
     description:
       "manages live contests at Leetcode/Codeforces and also fetches solution vidoes from youtube.",
-    image: "/image/contesttracker.png?height=600&width=800",
+    // FIXED: Removed query string
+    image: "/image/contesttracker.png",
     tags: ["Vue.js", "Firebase", "Tailwind CSS", "Chart.js"],
     demoUrl: "https://example.com",
     githubUrl:

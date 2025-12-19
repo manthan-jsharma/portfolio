@@ -45,66 +45,74 @@ export default function BlogPreview() {
 
   return (
     <div ref={containerRef} className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-      {featuredPosts.map((post) => (
-        <Card
-          key={post.id}
-          className="overflow-hidden group hover:shadow-lg transition-all duration-300 flex flex-col h-full opacity-0"
-        >
-          <div className="relative h-64 overflow-hidden">
-            <Image
-              src={post.coverImage || "/placeholder.svg"}
-              alt={post.title}
-              fill
-              className="object-cover transition-transform duration-700 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
-            <Badge className="absolute top-4 left-4 z-10">
-              {post.category}
-            </Badge>
-          </div>
+      {featuredPosts.map((post) => {
+        // FIXED: Clean the image URL by removing anything after '?'
+        const cleanImage = post.coverImage?.split("?")[0] || "/placeholder.svg";
 
-          <CardContent className="pt-6 flex-grow">
-            <div className="flex items-center gap-4 text-sm text-muted-foreground mb-3">
-              <div className="flex items-center gap-1">
-                <Calendar className="h-4 w-4" />
-                <span>{post.date}</span>
-              </div>
-              <div className="flex items-center gap-1">
-                <Clock className="h-4 w-4" />
-                <span>{post.readingTime}</span>
-              </div>
+        return (
+          <Card
+            key={post.id}
+            className="overflow-hidden group hover:shadow-lg transition-all duration-300 flex flex-col h-full opacity-0"
+          >
+            <div className="relative h-64 overflow-hidden">
+              <Image
+                src={cleanImage} // Using the sanitized URL here
+                alt={post.title}
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+              <Badge className="absolute top-4 left-4 z-10">
+                {post.category}
+              </Badge>
             </div>
 
-            <h3 className="text-2xl font-bold mb-2 group-hover:text-primary transition-colors">
-              {post.title}
-            </h3>
-            <p className="text-muted-foreground">{post.excerpt}</p>
-          </CardContent>
+            <CardContent className="pt-6 flex-grow">
+              <div className="flex items-center gap-4 text-sm text-muted-foreground mb-3">
+                <div className="flex items-center gap-1">
+                  <Calendar className="h-4 w-4" />
+                  <span>{post.date}</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <Clock className="h-4 w-4" />
+                  <span>{post.readingTime}</span>
+                </div>
+              </div>
 
-          <CardFooter>
-            {post.externalUrl ? (
-              <Button asChild variant="outline" className="w-full group">
-                <a
-                  href={post.externalUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Read on External Site
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </a>
-              </Button>
-            ) : (
-              <Button asChild className="w-full group">
-                {/* <Link href={`/blog/${post.id}`}> */}
-                <Link href={"/https://medium.com/@manthan.jsharma"}>
-                  Read Article
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Link>
-              </Button>
-            )}
-          </CardFooter>
-        </Card>
-      ))}
+              <h3 className="text-2xl font-bold mb-2 group-hover:text-primary transition-colors">
+                {post.title}
+              </h3>
+              <p className="text-muted-foreground">{post.excerpt}</p>
+            </CardContent>
+
+            <CardFooter>
+              {post.externalUrl ? (
+                <Button asChild variant="outline" className="w-full group">
+                  <a
+                    href={post.externalUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Read on External Site
+                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </a>
+                </Button>
+              ) : (
+                <Button asChild className="w-full group">
+                  {/* FIXED: Removed leading "/" so it goes to external site properly */}
+                  <Link
+                    href="https://medium.com/@manthan.jsharma"
+                    target="_blank"
+                  >
+                    Read Article
+                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </Link>
+                </Button>
+              )}
+            </CardFooter>
+          </Card>
+        );
+      })}
     </div>
   );
 }
