@@ -3,6 +3,7 @@ import Hero from "@/components/hero";
 import ProjectsGrid from "@/components/projects-grid";
 import Contact from "@/components/contact";
 import Link from "next/link";
+import WorkExperience from "@/components/work-experience";
 import BlogPreview from "@/components/blog-preview";
 import { ChatWidget } from "@/components/ChatWidget";
 
@@ -10,6 +11,7 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col">
       <Hero />
+      <WorkExperience />
       <div className="container px-4 py-24 mx-auto" id="projects">
         <div className="flex flex-col items-start gap-4 mb-12">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
