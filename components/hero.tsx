@@ -16,7 +16,6 @@ export default function Hero() {
 
   const phrases = [
     "HI, I AM MANTHAN",
-    "A Freelance Developer",
     "A Problem Solver",
     "A Software Developer",
     "A Technospheric",
@@ -112,7 +111,7 @@ export default function Hero() {
             </span>
           </h1>
           <p className="text-xl text-gray-100 max-w-2xl mx-auto drop-shadow-md font-medium">
-            I am a Freelance Developer building innovative web applications with
+            I am a Software Engineer building innovative web applications with
             modern technologies and a focus on user experience.
           </p>
         </div>
