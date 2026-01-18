@@ -56,12 +56,12 @@ const experiences = [
     gradient: "from-red-900/50 to-black",
   },
   {
-    id: 3,
+    id: 4,
     company: "Django Query Profiler",
     role: "OpenSource -> EnternPrise Tool",
     period: "2025",
     tech: ["Django", "SQL", "Prometheus", "tox"],
-    description: "Scaling RAG Agents & Data Systems.",
+    description: "Scaling Plugins to Grafana/Prometheus & Github Actions",
     details: [
       "SQL Auditing: Django Query Profiler is a high-traffic performance auditing utility (4, 000+ monthly downloads)",
       "Re-architecting the detection engine for N+1 query inefficiencies and database latency bottlenecks, directly impacting the development velocity of thousands of users.",
