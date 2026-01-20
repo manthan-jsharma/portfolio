@@ -136,7 +136,7 @@ export default function Hero() {
             className="w-full h-auto object-cover"
           >
             <source
-              src="https://res.cloudinary.com/dam6bdpzg/video/upload/f_auto,q_auto/v1766150040/portfolio2_wjhwnb.mp4"
+              src="https://res.cloudinary.com/dam6bdpzg/video/upload/f_auto,q_auto/v1768933461/InShot_20260120_232759312_1_mslctz.mp4"
               type="video/mp4"
             />
             Your browser does not support the video tag.
