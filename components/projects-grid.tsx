@@ -21,47 +21,38 @@ import { Button } from "@/components/ui/button";
 const projects = [
   {
     id: 1,
-    title: "Ed Tech platform",
+    title: "AI Sales Saas",
     description:
-      "A full-stack e-commerce solution with payment processing and inventory management.",
+      "AI-powered sales automation platform that researches prospects, generates personalized outreach, provides real-time call coaching, and automates post-call workflows from prospecting to contract delivery",
     // FIXED: Removed query string (?height=...)
-    image: "/image/Bookmark.png",
-    tags: ["Next.js", "Tailwind CSS", "Stripe", "MongoDB"],
-    demoUrl: "https://www.teachyourpeer.com/",
+    image: "/image/Alphasales.png",
+    tags: ["Node.js", "FastAPI", "Stripe", "Supabase"],
+    demoUrl: "https://alphasalessaas.live/",
     githubUrl: "https://github.com/yourusername/project",
   },
 
   {
     id: 2,
-    title: "Smile Match Ai",
+    title: "Empire-Credit AI (Autonomous credit execution)",
     description:
-      "An Ai-Based Teeth analysis/Face Analysis, Dental Routine/Veneer Recommendation System With Report generation, Email to Doctor, Appointment Booking, integrated Dental Simulator with(Models: Overbite/Crossbite/Underbite and Treatments: Invisalign/veneers) .",
-    longDescription:
-      "This fitness application helps users track their Dental Routine , set Recommendations , monitoing and feedback With Doctor. It includes features like Email to Doctor, Dental Simulator, Veneer Recommendation, and Dental Journey Blogs. The app is built with Next,Prisma,Nodemailer, Calendly, Nanoid, Three.js, Computer Vision, Vortex Ai.",
-    // FIXED: Removed query string
-    image: "/dental.png",
-    tags: [
-      "Next.js",
-      "Next-auth.js",
-      "Three.js",
-      "Computer vision Apis",
-      "Nodemailer",
-    ],
-    demoUrl: "https://www.loom.com/share/7fe991a520ef4e239896bba3c9ed5ce1",
-    githubUrl: "https://github.com/manthan-jsharma/SmileMatch-ai",
+      "Desktop-native credit automation software that bypasses web-based bot detection by injecting directly into browser DOM to autofill loan applications, featuring 150+ premium lender API integrations and advanced liquidity forecasting tools",
+    // FIXED: Removed query string (?height=...)
+    image: "/image/credit empire.png",
+    tags: ["Express.js", "SOC2", "Stripe", "postgresSQL"],
+    demoUrl: "https://empirecreditai.business/",
+    githubUrl: "https://github.com/yourusername/project",
   },
 
   {
     id: 3,
-    title: "Contest Tracker and solutions",
+    title: "Ed Tech platform",
     description:
-      "manages live contests at Leetcode/Codeforces and also fetches solution vidoes from youtube.",
-    // FIXED: Removed query string
-    image: "/image/contesttracker.png",
-    tags: ["Vue.js", "Firebase", "Tailwind CSS", "Chart.js"],
-    demoUrl: "https://example.com",
-    githubUrl:
-      "https://github.com/manthan-jsharma/Coding-Contest-Tracker-Frontend",
+      "An Ai-Based Teeth analysis/Face Analysis, Dental Routine/Veneer Recommendation System With Report generation, Email to Doctor, Appointment Booking, integrated Dental Simulator with(Models: Overbite/Crossbite/Underbite and Treatments: Invisalign/veneers).",
+    // FIXED: Removed query string (?height=...)
+    image: "/dental.png",
+    tags: ["Next.js", "Tailwind CSS", "Stripe", "MongoDB"],
+    demoUrl: "https://www.teachyourpeer.com/",
+    githubUrl: "https://github.com/yourusername/project",
   },
 ];
 
@@ -155,7 +146,7 @@ export default function ProjectsGrid() {
                   rel="noopener noreferrer"
                 >
                   <ExternalLink className="mr-2 h-4 w-4" />
-                  Live Demo
+                  Live URL
                 </Link>
               </Button>
             </CardFooter>
