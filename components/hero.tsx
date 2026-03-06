@@ -10,166 +10,175 @@ import { TextScrambler } from "@/lib/scrambler";
 export default function Hero() {
   const heroRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
-  const buttonRef = useRef<HTMLDivElement>(null);
-  const videoRef = useRef<HTMLDivElement>(null);
+  const reelRef = useRef<HTMLDivElement>(null);
+  const backgroundVideoRef = useRef<HTMLDivElement>(null);
   const scrambleRef = useRef<HTMLSpanElement>(null);
 
   const phrases = [
-    "HI, I AM MANTHAN",
-    "A Problem Solver",
-    "A Software Developer",
-    "A Technospheric",
+    "I AM MANTHAN",
+    "Problem Solver",
+    "Soft. Engineer",
+    "Technospheric",
   ];
 
   useEffect(() => {
+    // 1. GSAP Animations
     const ctx = gsap.context(() => {
-      // 1. Text Animation
       gsap.fromTo(
-        textRef.current,
-        { opacity: 0, y: 100 },
-        { opacity: 1, y: 0, duration: 1, ease: "power3.out" }
+        backgroundVideoRef.current,
+        { opacity: 0, scale: 1.1 },
+        { opacity: 1, scale: 1, duration: 2, ease: "power2.out" }
       );
 
-      // 2. Button Animation
       gsap.fromTo(
-        buttonRef.current,
-        { opacity: 0, y: 50 },
-        { opacity: 1, y: 0, duration: 0.8, delay: 0.6, ease: "back.out(1.7)" }
-      );
-
-      // 3. New Video Player Animation
-      gsap.fromTo(
-        videoRef.current,
-        { opacity: 0, y: 30, scale: 0.95 },
+        reelRef.current,
+        { opacity: 0, x: 100, rotateY: -20 },
         {
           opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 0.8,
-          delay: 0.8,
-          ease: "power2.out",
+          x: 0,
+          rotateY: 0,
+          duration: 1.2,
+          delay: 0.4,
+          ease: "expo.out",
         }
       );
 
-      // 4. Background Animation
-      gsap.to(heroRef.current, {
-        backgroundPosition: "100% 100%",
-        duration: 15,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
-      });
+      gsap.fromTo(
+        textRef.current,
+        { opacity: 0, y: 50 },
+        { opacity: 1, y: 0, duration: 1, delay: 0.8, ease: "power4.out" }
+      );
     }, heroRef);
 
-    return () => ctx.revert();
-  }, []);
+    // 2. Text Scrambler Logic with proper cleanup to fix the console error
+    let isMounted = true;
+    let scrambler: any = null;
 
-  useEffect(() => {
-    if (!scrambleRef.current) return;
+    if (scrambleRef.current) {
+      scrambler = new TextScrambler(scrambleRef.current);
+      let index = 0;
 
-    const scrambler = new TextScrambler(scrambleRef.current);
-    let index = 0;
+      const cycle = async () => {
+        while (isMounted) {
+          await scrambler.setText(phrases[index]);
+          await new Promise((r) => setTimeout(r, 2500));
+          if (!isMounted) break;
+          index = (index + 1) % phrases.length;
+        }
+      };
+      cycle();
+    }
 
-    const cycle = async () => {
-      while (true) {
-        await scrambler.setText(phrases[index]);
-        await new Promise((r) => setTimeout(r, 2000));
-        index = (index + 1) % phrases.length;
-      }
+    return () => {
+      ctx.revert();
+      isMounted = false;
     };
-
-    cycle();
-  });
+  }, []);
 
   return (
     <div
       ref={heroRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black px-4 md:px-8"
     >
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover z-0"
+      {/* --- BACKGROUND VIDEO (Wide Format) --- */}
+      <div
+        ref={backgroundVideoRef}
+        className="absolute inset-10 md:inset-16 rounded-[2rem] md:rounded-[3rem] overflow-hidden z-0 border border-white/10"
       >
-        <source
-          src="https://res.cloudinary.com/dam6bdpzg/video/upload/f_auto,q_auto/v1766150379/portfolio1_vhijcw.mp4"
-          type="video/mp4"
-        />
-        Your browser does not support the video tag.
-      </video>
-      <div className="absolute inset-0 bg-black/20 z-0 pointer-events-none" />
-      <div className="container relative z-10 px-4 py-32 mx-auto">
-        <div ref={textRef} className="max-w-3xl mx-auto text-center space-y-6">
-          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl text-white drop-shadow-lg">
-            <span className="block">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source
+            src="https://res.cloudinary.com/dam6bdpzg/video/upload/f_auto,q_auto/v1768933461/InShot_20260120_232759312_1_mslctz.mp4"
+            type="video/mp4"
+          />
+        </video>
+        {/* Deep Dark Overlay for readability */}
+        <div className="absolute inset-0 bg-black/60 backdrop-blur-[1px]" />
+      </div>
+
+      <div className="container relative z-10 flex flex-col lg:flex-row items-center gap-12 max-w-7xl mx-auto">
+        {/* LEFT: CONTENT */}
+        <div
+          ref={textRef}
+          className="flex-1 text-center lg:text-left space-y-8"
+        >
+          <div className="space-y-4">
+            <h1 className="text-4xl font-bold tracking-tight sm:text-6xl md:text-7xl text-white">
               <span
                 ref={scrambleRef}
-                className="inline-block text-primary min-h-[2.5rem]"
+                className="inline-block text-primary min-h-[4.5rem]"
               />
-            </span>
-          </h1>
-          <p className="text-xl text-gray-100 max-w-2xl mx-auto drop-shadow-md font-medium">
-            I am a Software Engineer building innovative web applications with
-            modern technologies and a focus on user experience.
-          </p>
+            </h1>
+            <p className="text-lg md:text-xl text-gray-300 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+              Software Engineer building innovative web applications with modern
+              technologies and a focus on user experience.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap justify-center lg:justify-start gap-4">
+            <Link href="#projects">
+              <Button
+                size="lg"
+                className="rounded-full px-8 py-6 text-lg hover:scale-105 transition-transform shadow-xl shadow-primary/10"
+              >
+                View My Work
+                <ArrowDown className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
+          </div>
         </div>
 
-        <div ref={buttonRef} className="mt-12 flex justify-center">
-          <Link href="#projects">
-            <Button size="lg" className="group shadow-xl border-white/10">
-              View My Work
-              <ArrowDown className="ml-2 h-4 w-4 transition-transform group-hover:translate-y-1" />
-            </Button>
-          </Link>
-        </div>
-        <div
-          ref={videoRef}
-          className="mt-10 mx-auto max-w-xs sm:max-w-sm md:max-w-md rounded-xl overflow-hidden shadow-2xl border-2 border-white/20 bg-black/40 backdrop-blur-md relative group"
-        >
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="w-full h-auto object-cover"
+        {/* RIGHT: THE REEL (9:16 Format) */}
+        <div className="flex-1 flex justify-center lg:justify-end w-full">
+          <div
+            ref={reelRef}
+            className="relative w-full max-w-[280px] sm:max-w-[340px] aspect-[9/16] rounded-[2.5rem] md:rounded-[3.5rem] border-[8px] border-neutral-900 shadow-2xl overflow-hidden bg-neutral-950 group"
           >
-            <source
-              src="https://res.cloudinary.com/dam6bdpzg/video/upload/f_auto,q_auto/v1768933461/InShot_20260120_232759312_1_mslctz.mp4"
-              type="video/mp4"
-            />
-            Your browser does not support the video tag.
-          </video>
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full h-full object-cover"
+            >
+              <source
+                src="https://res.cloudinary.com/dam6bdpzg/video/upload/f_auto,q_auto/v1772786921/InShot_20260303_161625374_owlcmd.mp4"
+                type="video/mp4"
+              />
+            </video>
 
-          <Link
-            href="https://www.bettertechnify.com/"
-            target="_blank"
-            className="absolute bottom-0 right-0 z-20 
-                       flex items-center gap-2 pl-4 pr-3 py-1.5
-                       bg-neutral-900/90 backdrop-blur-xl 
-                       border-t border-l border-white/10
-                       rounded-tl-2xl
-                       transition-all duration-300 ease-out
-                       hover:bg-neutral-800 hover:border-primary/50"
-          >
-            <div className="flex flex-col items-end">
-              <span className="text-[8px] uppercase text-gray-400 font-bold tracking-widest leading-none mb-0.5 group-hover:text-primary transition-colors">
-                Agency
-              </span>
-              <span className="text-xs font-bold text-white leading-none whitespace-nowrap group-hover:text-primary transition-colors">
-                Better Technify
-              </span>
-            </div>
-
-            <ExternalLink className="w-3 h-3 text-white opacity-70 transition-transform group-hover:translate-x-0.5 group-hover:text-primary" />
-          </Link>
+            {/* Float-over Agency Tag */}
+            <Link
+              href="https://www.bettertechnify.com/"
+              target="_blank"
+              className="absolute bottom-6 right-0 left-0 px-4 z-20 group"
+            >
+              <div className="flex items-center justify-between gap-2 p-3 bg-black/40 backdrop-blur-xl border border-white/10 rounded-2xl transition-all hover:bg-black/80">
+                <div className="flex flex-col">
+                  <span className="text-[10px] text-primary font-bold uppercase tracking-widest leading-none mb-1">
+                    Agency
+                  </span>
+                  <span className="text-sm font-bold text-white leading-none">
+                    Better Technify
+                  </span>
+                </div>
+                <ExternalLink className="w-4 h-4 text-white/50 group-hover:text-primary transition-colors" />
+              </div>
+            </Link>
+          </div>
         </div>
       </div>
 
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce z-10">
-        <ArrowDown className="h-6 w-6 text-white drop-shadow-md" />
+      {/* Bounce Arrow */}
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce z-20">
+        <ArrowDown className="h-6 w-6 text-white/30" />
       </div>
     </div>
   );
 }
+// src="https://res.cloudinary.com/dam6bdpzg/video/upload/f_auto,q_auto/v1766150379/portfolio1_vhijcw.mp4"
