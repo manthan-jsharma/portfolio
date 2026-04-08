@@ -21,37 +21,40 @@ import { Button } from "@/components/ui/button";
 const projects = [
   {
     id: 1,
-    title: "AI Sales Saas",
+    title: "Sales Content Engine/Automated Posts",
     description:
       "AI-powered sales automation platform that researches prospects, generates personalized outreach, provides real-time call coaching, and automates post-call workflows from prospecting to contract delivery",
-    // FIXED: Removed query string (?height=...)
-    image: "/image/Alphasales.png",
-    tags: ["Node.js", "FastAPI", "Stripe", "Supabase"],
-    demoUrl: "https://alphasalessaas.live/",
+    image: "/image/salespitch.png",
+    tags: [
+      "Emulated mobile servers",
+      "FastAPI",
+      "Stripe",
+      "Supabase",
+      "IP Proxies/Rotation",
+    ],
+    demoUrl: "https://www.salesmaxai.deals/",
     githubUrl: "https://github.com/yourusername/project",
   },
 
   {
     id: 2,
-    title: "Empire-Credit AI (Autonomous credit execution)",
+    title: "B2B Client-Admin Management Portal",
     description:
-      "Desktop-native credit automation software that bypasses web-based bot detection by injecting directly into browser DOM to autofill loan applications, featuring 150+ premium lender API integrations and advanced liquidity forecasting tools",
-    // FIXED: Removed query string (?height=...)
-    image: "/image/credit empire.png",
-    tags: ["Express.js", "SOC2", "Stripe", "postgresSQL"],
-    demoUrl: "https://empirecreditai.business/",
+      "A unified workspace for tracking progress, communicating with clients, and delivering results on time.",
+    image: "/image/clientportal.png",
+    tags: ["React", "WebSocket", "Stripe", "LLM", "Openclaw", "Supabase"],
+    demoUrl: "https://clientportal.cgramm.org/",
     githubUrl: "https://github.com/yourusername/project",
   },
 
   {
     id: 3,
-    title: "Ed Tech platform",
+    title: "Empire-Credit AI (Autonomous credit execution)",
     description:
-      "An Ai-Based Teeth analysis/Face Analysis, Dental Routine/Veneer Recommendation System With Report generation, Email to Doctor, Appointment Booking, integrated Dental Simulator with(Models: Overbite/Crossbite/Underbite and Treatments: Invisalign/veneers).",
-    // FIXED: Removed query string (?height=...)
-    image: "/dental.png",
-    tags: ["Next.js", "Tailwind CSS", "Stripe", "MongoDB"],
-    demoUrl: "https://www.teachyourpeer.com/",
+      "Desktop-native credit automation software that bypasses web-based bot detection by injecting directly into browser DOM to autofill loan applications, featuring 150+ premium lender API integrations and advanced liquidity forecasting tools",
+    image: "/image/credit empire.png",
+    tags: ["Express.js", "SOC2", "Stripe", "postgresSQL"],
+    demoUrl: "https://empirecreditai.business/",
     githubUrl: "https://github.com/yourusername/project",
   },
 ];
