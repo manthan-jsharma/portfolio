@@ -23,6 +23,21 @@ const experiences = [
     color: "shadow-[0_0_100px_-20px_rgba(59,130,246,0.5)]", // Blue
     gradient: "from-blue-900/50 to-black",
   },
+  {
+    id: 2,
+    company: "CodeCompany",
+    role: "Forward Deployed Engineer",
+    period: "2026 Part-Time",
+    tech: ["MVP", "SaaS", "Morpheus AI"],
+    description: "Helping Non Tech Founders as FDE.",
+    details: [
+      "Partenered with CodeCompany to deliver Software Solutions",
+      "Building fast MVPs and helping NonTech Founders in Software Space with Amar.",
+    ],
+    link: "https://codecompany.in/",
+    color: "shadow-[0_0_100px_-20px_rgba(139,92,246,0.5)]",
+    gradient: "from-violet-900/50 to-black",
+  },
   // {
   //   id: 2,
   //   company: "ODDLY AI",
@@ -40,7 +55,7 @@ const experiences = [
   //   gradient: "from-emerald-900/50 to-black",
   // },
   {
-    id: 6,
+    id: 3,
     company: "AI APP LABS",
     role: "Agency Collaboration",
     period: "Freelance",
@@ -56,7 +71,7 @@ const experiences = [
     gradient: "from-violet-900/50 to-black",
   },
   {
-    id: 3,
+    id: 4,
     company: "REDSCOPE AI",
     role: "Open Source Maintainer",
     period: "Current",
@@ -72,7 +87,7 @@ const experiences = [
     gradient: "from-red-900/50 to-black",
   },
   {
-    id: 4,
+    id: 5,
     company: "Django Query Profiler",
     role: "OpenSource -> EnternPrise Tool",
     period: "2025",
@@ -88,7 +103,7 @@ const experiences = [
     gradient: "from-emerald-900/50 to-black",
   },
   {
-    id: 5,
+    id: 6,
     company: "FACEGLOW AI",
     role: "Fullstack Freelancing",
     period: "Ongoing",
