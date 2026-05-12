@@ -25,7 +25,7 @@ const experiences = [
   },
   {
     id: 2,
-    company: "CodeCompany",
+    company: "CodeComp.in",
     role: "Forward Deployed Engineer",
     period: "2026 Part-Time",
     tech: ["MVP", "SaaS", "Morpheus AI"],
