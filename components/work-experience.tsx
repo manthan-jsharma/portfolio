@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import Link from "next/link";
+import { useEffect, useRef, type CSSProperties } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -20,8 +19,7 @@ const experiences = [
       "Implemented Jinja-based system to dynamically generate React component styles.",
     ],
     link: "https://docs.google.com/document/d/1AjR842V6Rzqu0BK6J0-YbKDO73YkD8kqf_TH9PCX2GU/edit?tab=t.0#heading=h.1pj71txoyup3",
-    color: "shadow-[0_0_100px_-20px_rgba(59,130,246,0.5)]", // Blue
-    gradient: "from-blue-900/50 to-black",
+    glow: ["#3b82f6", "#8b5cf6", "#22d3ee"],
   },
   {
     id: 2,
@@ -35,25 +33,8 @@ const experiences = [
       "Building fast MVPs and helping NonTech Founders in Software Space with Amar.",
     ],
     link: "https://codecompany.in/",
-    color: "shadow-[0_0_100px_-20px_rgba(139,92,246,0.5)]",
-    gradient: "from-violet-900/50 to-black",
+    glow: ["#8b5cf6", "#ec4899", "#a78bfa"],
   },
-  // {
-  //   id: 2,
-  //   company: "ODDLY AI",
-  //   role: "AI SOftware Developer",
-  //   period: "2025",
-  //   tech: ["RAG", "GCP", "Trigger.dev", "Pub/Sub"],
-  //   description: "Scaling RAG Agents & Data Systems.",
-  //   details: [
-  //     "Developed RAG Agents & Document Analytics for an API outsourcing platform.",
-  //     "Managed deployment lifecycle: VMs, Containerization, and GCP Artifact Registry.",
-  //     "Built scalable microservices via Trigger.dev and GCP Pub/Sub for real-time data.",
-  //   ],
-  //   link: "https://toolkit.invaro.ai/",
-  //   color: "shadow-[0_0_100px_-20px_rgba(16,185,129,0.5)]",
-  //   gradient: "from-emerald-900/50 to-black",
-  // },
   {
     id: 3,
     company: "AI APP LABS",
@@ -67,8 +48,7 @@ const experiences = [
       "Contributed to building 'Morpheus AI' for Ashton Hall.",
     ],
     link: "https://www.cgramm.org/",
-    color: "shadow-[0_0_100px_-20px_rgba(139,92,246,0.5)]",
-    gradient: "from-violet-900/50 to-black",
+    glow: ["#a855f7", "#f472b6", "#c084fc"],
   },
   {
     id: 4,
@@ -83,8 +63,7 @@ const experiences = [
       "Enforced strict TDD protocols and managed feature expansion.",
     ],
     link: "https://www.loom.com/share/15ae5ff8aa46432bb591e156d01dd9e3",
-    color: "shadow-[0_0_100px_-20px_rgba(239,68,68,0.5)]",
-    gradient: "from-red-900/50 to-black",
+    glow: ["#ef4444", "#f97316", "#fb7185"],
   },
   {
     id: 5,
@@ -99,8 +78,7 @@ const experiences = [
       "Managing the private development lifecycle and roadmap execution, transforming the legacy open-source plugin into a production-grade enterprise tool",
     ],
     link: "https://pypistats.org/packages/django-query-profiler",
-    color: "shadow-[0_0_100px_-20px_rgba(16,185,129,0.5)]",
-    gradient: "from-emerald-900/50 to-black",
+    glow: ["#10b981", "#14b8a6", "#34d399"],
   },
   {
     id: 6,
@@ -115,182 +93,434 @@ const experiences = [
       "Scheduled for release on both AppStore and PlayStore.",
     ],
     link: null,
-    color: "shadow-[0_0_100px_-20px_rgba(236,72,153,0.5)]",
-    gradient: "from-pink-900/50 to-black",
+    glow: ["#ec4899", "#f43f5e", "#fb7185"],
   },
-];
+] as const;
+
+const TITLE_LINE_1 = "Work";
+const TITLE_LINE_2 = "Experience";
+
+const CARD_ENTER = 0.58;
+const CARD_HOLD = 0.52;
+const CARD_EXIT = 0.55;
+const CARD_EASE_IN = "power4.out";
+const CARD_EASE_OUT = "power3.in";
+
+function SplitTitle({ text, className }: { text: string; className?: string }) {
+  return (
+    <span className={className}>
+      {text.split("").map((char, i) => (
+        <span key={i} className="inline-block overflow-hidden">
+          <span className="title-char inline-block will-change-transform">
+            {char}
+          </span>
+        </span>
+      ))}
+    </span>
+  );
+}
+
+function ExperienceCard({
+  exp,
+  index,
+}: {
+  exp: (typeof experiences)[number];
+  index: number;
+}) {
+  return (
+    <article
+      className="exp-card absolute left-1/2 top-1/2 w-[88vw] max-w-[620px]"
+      style={{ transformStyle: "preserve-3d" }}
+      data-card-index={index}
+    >
+      <div className="exp-card-wobble will-change-transform">
+        <div className="exp-card-bounce will-change-transform">
+          <div
+            className="exp-card-glow md:rounded-[2.5rem]"
+            style={
+              {
+                "--glow-c1": exp.glow[0],
+                "--glow-c2": exp.glow[1],
+                "--glow-c3": exp.glow[2],
+              } as CSSProperties
+            }
+          >
+            <div className="exp-card-inner relative flex min-h-[460px] flex-col overflow-hidden rounded-[2rem] bg-black/80 p-7 backdrop-blur-xl md:min-h-[500px] md:rounded-[2.5rem] md:p-9">
+              <div className="mb-8 flex items-start justify-between gap-4">
+                <span className="text-[10px] font-bold uppercase tracking-[0.35em] text-white/40">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <div className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] uppercase tracking-[0.25em] text-white/50">
+                  {exp.period}
+                </div>
+              </div>
+
+              <div className="flex flex-1 flex-col">
+                <div className="mb-8 space-y-3">
+                  <h3 className="text-3xl font-bold tracking-tight text-white md:text-4xl">
+                    {exp.company}
+                  </h3>
+                  <p className="text-base font-medium text-white/50 md:text-lg">
+                    {exp.role}
+                  </p>
+                </div>
+
+                <p className="mb-8 text-base leading-relaxed text-gray-300 md:text-lg">
+                  {exp.description}
+                </p>
+
+                <ul className="mb-8 space-y-3 border-l border-white/10 pl-5">
+                  {exp.details.map((detail, i) => (
+                    <li
+                      key={i}
+                      className="text-sm leading-relaxed text-gray-400 md:text-[0.95rem]"
+                    >
+                      {detail}
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="mt-auto space-y-6">
+                  <div className="flex flex-wrap gap-2">
+                    {exp.tech.map((t) => (
+                      <span
+                        key={t}
+                        className="inline-flex items-center rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-xs font-medium text-white/70"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+
+                  {exp.link ? (
+                    <a
+                      href={exp.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group relative z-50 inline-flex w-fit cursor-pointer items-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-2.5 text-sm font-medium text-white transition-all hover:border-white/30 hover:bg-white/10"
+                      onPointerDown={(e) => e.stopPropagation()}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        window.open(exp.link!, "_blank", "noopener,noreferrer");
+                      }}
+                    >
+                      Explore Project
+                      <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                    </a>
+                  ) : (
+                    <span className="inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2.5 text-sm font-medium text-white/40">
+                      Private Project
+                    </span>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+  );
+}
 
 export default function WorkExperience() {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+  const pinRef = useRef<HTMLDivElement>(null);
+  const titleStageRef = useRef<HTMLDivElement>(null);
+  const subtitleRef = useRef<HTMLParagraphElement>(null);
+  const scrollHintRef = useRef<HTMLDivElement>(null);
+  const cardsLayerRef = useRef<HTMLDivElement>(null);
+  const progressRef = useRef<HTMLDivElement>(null);
+  const counterRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    const cards = document.querySelectorAll(".experience-card");
+    const ctx = gsap.context(() => {
+      const section = sectionRef.current;
+      const pin = pinRef.current;
+      if (!section || !pin) return;
 
-    cards.forEach((card, index) => {
-      gsap.set(card, {
-        zIndex: index + 1,
-        transformOrigin: "center top",
+      const cards = gsap.utils.toArray<HTMLElement>(".exp-card");
+      const titleChars = gsap.utils.toArray<HTMLElement>(".title-char");
+
+      const titleScroll = window.innerHeight * 1.5;
+      const perCardScroll = window.innerHeight * 2.6;
+      const totalScroll =
+        titleScroll + perCardScroll * cards.length + window.innerHeight * 0.5;
+
+      const setActiveCard = (activeIndex: number) => {
+        cards.forEach((card, idx) => {
+          const isActive = idx === activeIndex;
+          card.style.pointerEvents = isActive ? "auto" : "none";
+          card.style.zIndex = isActive ? "30" : "1";
+        });
+      };
+
+      gsap.set(cardsLayerRef.current, { autoAlpha: 0, pointerEvents: "none" });
+      gsap.set(cards, {
+        autoAlpha: 0,
+        xPercent: -50,
+        yPercent: -50,
+        x: 0,
+        y: 0,
+        scale: 0.9,
       });
 
-      // 3. The Stacking Animation
-      // We only animate if there is a NEXT card to cover this one
-      if (index < cards.length - 1) {
-        const nextCard = cards[index + 1];
-
-        gsap.to(card, {
-          // A. Scale down slightly to create depth (0.95 is subtle, 0.8 is dramatic)
-          scale: 0.93,
-
-          // B. Fade out slightly to focus attention on the new card
-          opacity: 1, // Keep it visible!
-          filter: "brightness(0.4) blur(1px)", // Darken it significantly
-
-          // C. Animation control
-          ease: "none",
-          scrollTrigger: {
-            trigger: nextCard, // The animation is driven by the NEXT card's movement
-            start: "top bottom", // When the top of next card enters viewport
-            end: "top top+=100", // When the top of next card reaches the sticky position
-            scrub: true, // Smooth linking to scroll
-          },
-        });
-      }
-    });
-
-    // Optional: Progress Bar Logic (Kept from your original code)
-    gsap.fromTo(
-      ".progress-line",
-      { height: "0%" },
-      {
-        height: "100%",
-        ease: "none",
+      const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top center",
-          end: "bottom bottom",
-          scrub: true,
+          trigger: section,
+          start: "top top",
+          end: () => `+=${totalScroll}`,
+          pin: pin,
+          scrub: 4.5,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+          onUpdate: (self) => {
+            if (progressRef.current) {
+              progressRef.current.style.width = `${self.progress * 100}%`;
+            }
+            const titlePortion = titleScroll / totalScroll;
+            let active = 0;
+            if (self.progress > titlePortion) {
+              const cardProgress =
+                (self.progress - titlePortion) / (1 - titlePortion);
+              active = Math.min(
+                cards.length - 1,
+                Math.max(0, Math.floor(cardProgress * cards.length))
+              );
+            }
+            setActiveCard(active);
+            if (counterRef.current) {
+              counterRef.current.textContent = String(active + 1).padStart(2, "0");
+            }
+          },
         },
-      }
-    );
+      });
+
+      // Phase 1 — title (cards hidden)
+      tl.from(titleChars, {
+        yPercent: 120,
+        rotateX: -80,
+        opacity: 0,
+        scale: 0.6,
+        stagger: { each: 0.04, from: "random" },
+        duration: 0.35,
+        ease: "power4.out",
+      })
+        .from(
+          subtitleRef.current,
+          { y: 40, opacity: 0, filter: "blur(8px)", duration: 0.22 },
+          "-=0.12"
+        )
+        .from(
+          scrollHintRef.current,
+          { opacity: 0, y: 20, duration: 0.18 },
+          "-=0.05"
+        )
+        .to({}, { duration: 0.25 })
+        .addLabel("title-complete")
+        .to(
+          titleStageRef.current,
+          {
+            opacity: 0,
+            scale: 0.85,
+            y: -80,
+            filter: "blur(12px)",
+            visibility: "hidden",
+            pointerEvents: "none",
+            duration: 0.28,
+            ease: "power3.in",
+          },
+          "title-complete"
+        )
+        .to(scrollHintRef.current, { opacity: 0, duration: 0.12 }, "title-complete")
+        .to({}, { duration: 0.15 })
+        .addLabel("cards-begin")
+        .set(cardsLayerRef.current, { autoAlpha: 1, pointerEvents: "auto" }, "cards-begin");
+
+      // Phase 2 — one card at a time in center
+      cards.forEach((card, i) => {
+        const bounce = card.querySelector(".exp-card-bounce");
+        const glow = card.querySelector(".exp-card-glow");
+
+        if (bounce) {
+          gsap.to(bounce, {
+            y: 3,
+            rotation: 1,
+            duration: 2.4 + i * 0.2,
+            repeat: -1,
+            yoyo: true,
+            ease: "sine.inOut",
+          });
+        }
+
+        if (i === 0) {
+          // Kinzy: bottom → center (matches title letter feel)
+          tl.set(
+            card,
+            {
+              autoAlpha: 0,
+              x: 0,
+              y: "75vh",
+              scale: 0.6,
+              rotateX: -80,
+              rotateZ: 0,
+              filter: "blur(10px)",
+            },
+            "cards-begin"
+          );
+          tl.to(
+            card,
+            {
+              autoAlpha: 1,
+              y: 0,
+              scale: 1,
+              rotateX: 0,
+              filter: "blur(0px)",
+              duration: CARD_ENTER,
+              ease: CARD_EASE_IN,
+            },
+            "cards-begin+=0.05"
+          );
+          tl.to({}, { duration: CARD_HOLD });
+        }
+
+        if (i < cards.length - 1) {
+          const nextCard = cards[i + 1];
+          const transitionLabel = `card-${i}-exit`;
+
+          tl.addLabel(transitionLabel);
+          tl.to(
+            card,
+            {
+              y: "-70vh",
+              autoAlpha: 0,
+              scale: 0.85,
+              rotateX: 12,
+              filter: "blur(12px)",
+              duration: CARD_EXIT,
+              ease: CARD_EASE_OUT,
+            },
+            transitionLabel
+          );
+          tl.set(
+            nextCard,
+            {
+              autoAlpha: 0,
+              x: "105vw",
+              y: 0,
+              scale: 0.85,
+              rotateZ: 6,
+              rotateX: -20,
+              filter: "blur(10px)",
+            },
+            transitionLabel
+          );
+          tl.to(
+            nextCard,
+            {
+              autoAlpha: 1,
+              x: 0,
+              y: 0,
+              scale: 1,
+              rotateZ: 0,
+              rotateX: 0,
+              filter: "blur(0px)",
+              duration: CARD_ENTER,
+              ease: CARD_EASE_IN,
+            },
+            transitionLabel
+          );
+          tl.to({}, { duration: CARD_HOLD });
+
+          if (glow) {
+            gsap.to(glow, {
+              opacity: 0.85,
+              duration: 0.6,
+              repeat: -1,
+              yoyo: true,
+              ease: "sine.inOut",
+            });
+          }
+        }
+      });
+
+      setActiveCard(0);
+      ScrollTrigger.refresh();
+    }, sectionRef);
+
+    const handleResize = () => ScrollTrigger.refresh();
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      ScrollTrigger.getAll().forEach((t) => t.kill());
+      window.removeEventListener("resize", handleResize);
+      ctx.revert();
     };
   }, []);
 
   return (
-    <div
-      ref={containerRef}
-      className="relative bg-black text-white min-h-screen py-24"
-    >
-      <div className="container px-4 mx-auto flex gap-8 md:gap-16">
-        {/* LEFT COLUMN: FIXED TITLE */}
-        <div className="hidden md:flex flex-col items-center sticky top-24 h-fit gap-8">
-          <div className="relative h-[60vh] w-[2px] bg-white/10 rounded-full overflow-hidden">
-            <div className="progress-line absolute top-0 left-0 w-full bg-white shadow-[0_0_10px_white]" />
+    <section ref={sectionRef} className="relative bg-black text-white">
+      <div ref={pinRef} className="relative h-screen w-full overflow-hidden">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(255,255,255,0.06),transparent_50%),radial-gradient(ellipse_at_bottom_right,rgba(255,255,255,0.04),transparent_50%)]" />
+
+        <div
+          ref={titleStageRef}
+          className="pointer-events-none absolute inset-0 z-20 flex flex-col items-center justify-center px-6"
+          style={{ perspective: "1000px" }}
+        >
+          <div className="text-center">
+            <div className="overflow-hidden text-[clamp(3.5rem,12vw,9rem)] font-black uppercase leading-[0.85] tracking-tighter">
+              <SplitTitle text={TITLE_LINE_1} />
+            </div>
+            <div className="overflow-hidden text-[clamp(3.5rem,12vw,9rem)] font-black uppercase leading-[0.85] tracking-tighter text-white/90">
+              <SplitTitle text={TITLE_LINE_2} />
+            </div>
           </div>
-          <div className="writing-mode-vertical text-xs tracking-[0.5em] text-white/30 uppercase rotate-180">
-            Career Timeline
-          </div>
+
+          <p
+            ref={subtitleRef}
+            className="mt-8 text-sm md:text-base uppercase tracking-[0.4em] text-white/40"
+          >
+            Career Timeline · {experiences.length} Roles
+          </p>
         </div>
 
-        {/* RIGHT COLUMN: STACKING CARDS */}
-        <div className="flex-1">
-          <div className="mb-[10vh]">
-            <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter text-white mix-blend-overlay">
-              Selected
-              <br />
-              Works
-            </h2>
-          </div>
+        <div
+          ref={scrollHintRef}
+          className="pointer-events-none absolute bottom-10 left-1/2 z-40 flex -translate-x-1/2 flex-col items-center gap-3"
+        >
+          <span className="text-[10px] uppercase tracking-[0.3em] text-white/30">
+            Scroll to explore
+          </span>
+          <div className="h-10 w-px bg-gradient-to-b from-white/50 to-transparent" />
+        </div>
 
-          {/* Container for cards. 
-            We use a slight bottom margin on cards to ensure scroll space.
-          */}
-          <div className="flex flex-col space-y-[50vh]">
-            {experiences.map((exp, index) => (
-              <div
-                key={exp.id}
-                className="experience-card sticky top-32 w-full"
-              >
-                <div
-                  className={`relative overflow-hidden rounded-3xl border border-white/10 bg-zinc-900 ${exp.color} transition-colors duration-500`}
-                >
-                  {/* Card Background & Content (Same as your original) */}
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-br ${exp.gradient} opacity-20`}
-                  />
+        <div className="pointer-events-none absolute bottom-0 left-0 z-30 h-px w-full bg-white/10">
+          <div
+            ref={progressRef}
+            className="h-full w-0 bg-white/70 transition-none"
+          />
+        </div>
 
-                  <div className="relative z-10 grid grid-cols-1 md:grid-cols-12 gap-6 p-8 md:p-12 min-h-[500px]">
-                    <div className="absolute top-4 right-6 text-9xl font-black text-white/5 select-none">
-                      0{index + 1}
-                    </div>
+        <div className="pointer-events-none absolute right-6 top-6 z-40 hidden items-baseline gap-2 font-mono md:flex">
+          <span ref={counterRef} className="text-3xl font-bold text-white/80">
+            01
+          </span>
+          <span className="text-xs tracking-widest text-white/30">
+            / {String(experiences.length).padStart(2, "0")}
+          </span>
+        </div>
 
-                    <div className="md:col-span-5 flex flex-col justify-between">
-                      <div>
-                        <div className="inline-block px-3 py-1 mb-4 rounded-full border border-white/20 bg-white/5 text-xs tracking-widest uppercase text-white/60">
-                          {exp.period}
-                        </div>
-                        <h3 className="text-4xl md:text-5xl font-bold text-white mb-2 uppercase leading-none">
-                          {exp.company}
-                        </h3>
-                        <p className="text-xl text-purple-400 font-medium tracking-wide">
-                          {exp.role}
-                        </p>
-                      </div>
-
-                      <div className="flex flex-wrap gap-2 mt-8 md:mt-0">
-                        {exp.tech.map((t) => (
-                          <span
-                            key={t}
-                            className="px-3 py-1 text-xs bg-black/40 border border-white/10 rounded text-gray-400"
-                          >
-                            {t}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="md:col-span-7 flex flex-col justify-end md:border-l md:border-white/10 md:pl-12">
-                      <p className="text-2xl font-light text-white mb-8 leading-snug">
-                        {exp.description}
-                      </p>
-                      <ul className="space-y-4 mb-8">
-                        {exp.details.map((d, i) => (
-                          <li
-                            key={i}
-                            className="flex items-start gap-3 text-gray-400 text-sm"
-                          >
-                            <span className="w-1.5 h-1.5 mt-1.5 rounded-full bg-purple-500 flex-shrink-0" />
-                            {d}
-                          </li>
-                        ))}
-                      </ul>
-
-                      {exp.link && (
-                        <Link
-                          href={exp.link}
-                          target="_blank"
-                          className="inline-flex items-center gap-2 text-white border-b border-white/30 hover:border-white pb-1 w-fit transition-all group"
-                        >
-                          <span className="text-sm font-bold uppercase tracking-wider">
-                            Explore Project
-                          </span>
-                          <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-                        </Link>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-          {/* Spacer to allow full scroll past the last item */}
-          <div className="h-[50vh]" />
+        <div
+          ref={cardsLayerRef}
+          className="invisible absolute inset-0 z-30 overflow-hidden"
+          style={{ perspective: "1200px" }}
+        >
+          {experiences.map((exp, index) => (
+            <ExperienceCard key={exp.id} exp={exp} index={index} />
+          ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }

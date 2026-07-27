@@ -105,7 +105,10 @@ export function ChatWidget() {
               </button>
             </div>
 
-            <div className="flex-grow flex flex-col p-4 space-y-4 overflow-y-auto">
+            <div
+              className="flex-grow flex flex-col p-4 space-y-4 overflow-y-auto"
+              data-lenis-prevent
+            >
               {messages.map((m: UIMessage) => (
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}

@@ -6,12 +6,12 @@ import { ArrowDown, ExternalLink } from "lucide-react";
 import { gsap } from "gsap";
 import { Button } from "@/components/ui/button";
 import { TextScrambler } from "@/lib/scrambler";
+import Skills from "@/components/skills";
 
 export default function Hero() {
   const heroRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
   const reelRef = useRef<HTMLDivElement>(null);
-  const backgroundVideoRef = useRef<HTMLDivElement>(null);
   const scrambleRef = useRef<HTMLSpanElement>(null);
   const buttonRef = useRef<HTMLDivElement>(null);
 
@@ -24,13 +24,6 @@ export default function Hero() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Background entrance (Desktop only)
-      gsap.fromTo(
-        backgroundVideoRef.current,
-        { opacity: 0 },
-        { opacity: 1, duration: 2, ease: "power2.out" }
-      );
-
       // Reel Mockup entrance (Slide up on mobile, slide in on desktop)
       gsap.fromTo(
         reelRef.current,
@@ -97,25 +90,7 @@ export default function Hero() {
       ref={heroRef}
       className="relative min-h-screen flex flex-col lg:flex-row items-center justify-center overflow-hidden bg-black px-6 md:px-8 pt-28 pb-16 md:pt-0 md:pb-0"
     >
-      {/* --- BACKGROUND VIDEO: Hidden on mobile ('hidden'), shown on desktop ('md:block') --- */}
-      <div
-        ref={backgroundVideoRef}
-        className="hidden md:block absolute inset-10 md:inset-16 rounded-[3rem] overflow-hidden z-0 border border-white/10"
-      >
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source
-            src="https://res.cloudinary.com/dam6bdpzg/video/upload/f_auto,q_auto/v1768933461/InShot_20260120_232759312_1_mslctz.mp4"
-            type="video/mp4"
-          />
-        </video>
-        <div className="absolute inset-0 bg-black/60 backdrop-blur-[1px]" />
-      </div>
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(255,255,255,0.06),transparent_50%),radial-gradient(ellipse_at_bottom_right,rgba(255,255,255,0.04),transparent_50%)]" />
 
       <div className="container relative z-10 flex flex-col lg:flex-row items-center gap-12 lg:gap-16 max-w-7xl mx-auto">
         {/* LEFT: CONTENT (Adjusted spacing for mobile) */}
@@ -136,7 +111,9 @@ export default function Hero() {
             </p>
           </div>
 
-          <div ref={buttonRef} className="flex justify-center lg:justify-start">
+          <Skills />
+
+          <div ref={buttonRef} className="flex justify-center lg:justify-start pt-2">
             <Link href="#projects" className="group relative">
               <div className="absolute -inset-1 bg-gradient-to-r from-primary/50 to-white/50 rounded-full blur opacity-20 group-hover:opacity-60 transition duration-500"></div>
               <Button
